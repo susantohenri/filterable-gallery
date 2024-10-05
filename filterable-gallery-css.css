@@ -1,0 +1,13 @@
+div.filterable-gallery img {
+    height: 300px !important;
+}
+
+div.filterable-gallery div.eael-filter-gallery-control ul li.active,
+div.filterable-gallery .eael-filterable-gallery-loadmore a {
+    background-color: #333;
+    color: #fff;
+}
+
+div.filterable-gallery .eael-filterable-gallery-loadmore {
+    text-align: center;
+}
