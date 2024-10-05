@@ -11,3 +11,7 @@ div.filterable-gallery .eael-filterable-gallery-loadmore a {
 div.filterable-gallery .eael-filterable-gallery-loadmore {
     text-align: center;
 }
+
+div.filterable-gallery .eael-filterable-gallery-loadmore a {
+    cursor: pointer;
+}

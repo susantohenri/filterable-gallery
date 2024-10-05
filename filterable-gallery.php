@@ -9,7 +9,7 @@
  * 	Author URI: http://www.doctormopar.com
  */
 
-define('FILTERABLE_GALLERY_LOAD_IMAGE_INTERVAL_MS', 100);
+define('FILTERABLE_GALLERY_LOAD_IMAGE_INTERVAL_MS', 500);
 define('FILTERABLE_GALLERY_LOAD_IMAGE_LIMIT', 6);
 add_shortcode('filterable-gallery', 'filterable_gallery');
 

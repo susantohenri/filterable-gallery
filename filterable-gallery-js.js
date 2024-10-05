@@ -65,8 +65,10 @@ function filterable_gallery_get_active_filter() {
 }
 
 filterable_gallery.load_more_btn.click(e => {
+    const default_limit = parseInt(filterable_gallery.limit_lazy)
     filterable_gallery.limit_lazy = filterable_gallery.json.length
-    filterable_gallery_lazy_load(0)
+    filterable_gallery_lazy_load(default_limit + 1)
+    filterable_gallery.load_more_btn.parent().remove()
 })
 
 filterable_gallery_collect_filters()
