@@ -31,7 +31,10 @@ function filterable_gallery_apply_filter(filter) {
 
     const selected = filterable_gallery.controls.find(`li:contains("${filter}")`)
     if (0 < selected.length) selected.addClass(`active`)
-    else filter = `All`
+    else {
+        filter = `All`
+        filterable_gallery.controls.find(`li:contains("${filter}")`).addClass(`active`)
+    }
 
     if (`All` !== filter) {
         filterable_gallery.items.find(`[data-filter]`).not((`[data-filter="${filter}"]`)).hide()
@@ -42,8 +45,6 @@ function filterable_gallery_apply_filter(filter) {
 function filterable_gallery_lazy_load(index) {
     if (!filterable_gallery.json[index]) return false
     if (index == filterable_gallery.limit_lazy) return false
-
-    if (0 == index) filterable_gallery.items.find(`ul`).html(``)
 
     const item = filterable_gallery.json[index]
     filterable_gallery.items.append(`
@@ -70,6 +71,14 @@ function filterable_gallery_get_active_filter() {
     return filterable_gallery.controls.find(`li.active`).html()
 }
 
+function filterable_gallery_draw(filter) {
+    filterable_gallery.items.html(``)
+    filterable_gallery_collect_filters()
+    filterable_gallery_write_filters()
+    filterable_gallery_apply_filter(filter)
+    filterable_gallery_lazy_load(0)
+}
+
 filterable_gallery.load_more_btn.click(e => {
     const default_limit = parseInt(filterable_gallery.limit_lazy)
     filterable_gallery.limit_lazy = filterable_gallery.json.length
@@ -93,14 +102,8 @@ filterable_gallery.update_btn.click(e => {
     }, json => {
         filterable_gallery.json = JSON.parse(json)
         const active_filter = filterable_gallery_get_active_filter()
-        filterable_gallery_collect_filters()
-        filterable_gallery_write_filters()
-        filterable_gallery_apply_filter(active_filter)
-        filterable_gallery_lazy_load(0)
+        filterable_gallery_draw(active_filter)
     })
 })
 
-filterable_gallery_collect_filters()
-filterable_gallery_write_filters()
-filterable_gallery_apply_filter(`All`)
-filterable_gallery_lazy_load(0)
+filterable_gallery_draw(`All`)
