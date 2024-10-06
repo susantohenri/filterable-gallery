@@ -2,6 +2,14 @@ div.filterable-gallery img {
     height: 300px !important;
 }
 
+div.filterable-gallery [data-for-admin] {
+    display: none;
+}
+
+div.filterable-gallery[data-is-admin="1"] [data-for-admin] {
+    display: block;
+}
+
 div.filterable-gallery div.eael-filter-gallery-control ul li.active,
 div.filterable-gallery .eael-filterable-gallery-loadmore a {
     background-color: #333;
@@ -12,6 +20,81 @@ div.filterable-gallery .eael-filterable-gallery-loadmore {
     text-align: center;
 }
 
-div.filterable-gallery .eael-filterable-gallery-loadmore a {
+div.filterable-gallery .eael-filterable-gallery-loadmore a,
+div.filterable-gallery .eael-filterable-gallery-update-filter a {
     cursor: pointer;
+}
+
+div.filterable-gallery[data-is-admin="1"] .eael-filterable-gallery-loadmore {
+    display: none;
+}
+
+div.filterable-gallery .eael-filter-gallery-control {
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    flex-flow: wrap;
+    padding: 0px;
+    margin: 0px;
+}
+
+div.filterable-gallery .eael-filter-gallery-control ul {
+    text-align: center;
+    margin: 0px 0px 20px;
+    padding: 0px;
+}
+
+div.filterable-gallery .eael-filter-gallery-control>ul li {
+    font-size: 13px;
+    line-height: 1.8;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    font-weight: normal;
+    padding: 6px 15px;
+    margin: 0px 5px;
+    display: inline-block;
+    text-align: center;
+    list-style: none;
+}
+
+div.filterable-gallery .eael-filter-gallery-container {
+    text-align: justify;
+    font-size: 0.1px;
+    overflow: hidden;
+    text-align: justify;
+}
+
+div.filterable-gallery .eael-filterable-gallery-item-wrap {
+    float: left;
+    width: 33.33%;
+}
+
+div.filterable-gallery .eael-gallery-grid-item {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+div.filterable-gallery .eael-filterable-gallery-item-wrap .eael-gallery-grid-item .gallery-item-thumbnail-wrap>img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+div.filterable-gallery [type="text"] {
+    margin-top: 5px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+div.filterable-gallery .eael-filterable-gallery-update-filter {
+    color: white;
+    text-align: center;
 }
