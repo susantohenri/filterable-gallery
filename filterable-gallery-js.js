@@ -22,6 +22,7 @@ function filterable_gallery_write_filters() {
         .find(`li`)
         .click(e => {
             filterable_gallery_apply_filter(e.target.innerHTML)
+            filterable_gallery.load_more_btn.click()
         })
 }
 
